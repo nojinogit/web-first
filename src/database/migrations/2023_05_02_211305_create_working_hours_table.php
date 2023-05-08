@@ -15,7 +15,7 @@ class CreateWorkingHoursTable extends Migration
     {
         Schema::create('working_hours', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('users_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->datetime('working_start');
             $table->datetime('working_end');
             $table->timestamps();
