@@ -53,3 +53,8 @@ h1{
     max-width: 1230px;
 }
 
+.button-none {
+    background: #ccc;
+    pointer-events: none;
+    cursor:default;
+}

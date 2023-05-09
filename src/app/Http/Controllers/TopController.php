@@ -22,7 +22,7 @@ class TopController extends Controller
 
     public function workingEnd(Request $request){
         WorkingHour::where('user_id',$request->user_id)->latest()->first()->update(['working_end'=>Carbon::now()]);
-        return redirect('/')->with('message','退勤しました');
+        return redirect('/',)->with('message','退勤しました');
     }
 
     public function breakStart(Request $request){
