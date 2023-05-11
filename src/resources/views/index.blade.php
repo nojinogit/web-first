@@ -9,11 +9,16 @@
 @section('content')
 
 <h1>{{ Auth::user()->name }} さんお疲れ様です！</h1>
-{{ \Carbon\Carbon::now() }}
-@if(session('message'))
-<div class="message">
-    <div class="message__success">
-        <p class="message__success--p" id="session">{{session('message')}}</p>
+
+<div>
+    <div>
+        {{ \Carbon\Carbon::now() }}
+    </div>
+    @if(session('message'))
+    <div class="message">
+        <div class="message__success">
+            <p class="message__success--p" id="session">{{session('message')}}</p>
+        </div>
     </div>
 </div>
 @endif
@@ -24,7 +29,6 @@
             @csrf
         <input type="hidden" name="sess" value="working_start">
         <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-        <input type="hidden" name="working_end" value="{{ \Carbon\Carbon::today()->addHours(23)->addMinutes(59)->addSeconds(59) }}">
         <button class="attendance__button-submit" type="submit" id="working_start">勤務開始</button>
         </form>
         <form class="attendance__button" action="workingEnd" method="post">
@@ -37,7 +41,6 @@
         <form class="attendance__button" action="breakStart" method="post">
             @csrf
         <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-        <input type="hidden" name="break_end" value="{{ \Carbon\Carbon::today()->addHours(23)->addMinutes(59)->addSeconds(59) }}">
         <button class="attendance__button-submit button-none" type="submit"  id="break_start" >休憩開始</button>
         </form>
         <form class="attendance__button"  action="breakEnd" method="post">

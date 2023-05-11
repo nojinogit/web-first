@@ -2,6 +2,7 @@
 
 use App\Providers\RouteServiceProvider;
 use Laravel\Fortify\Features;
+use App\Http\Controllers\TopController;
 
 return [
 
@@ -62,6 +63,7 @@ return [
     */
 
     'home' => RouteServiceProvider::HOME,
+    /*'home' => TopController::class,'index',*/
 
     /*
     |--------------------------------------------------------------------------

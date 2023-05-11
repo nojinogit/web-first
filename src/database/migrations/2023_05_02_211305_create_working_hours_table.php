@@ -17,7 +17,7 @@ class CreateWorkingHoursTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->datetime('working_start');
-            $table->datetime('working_end');
+            $table->datetime('working_end')->nullable();
             $table->timestamps();
         });
     }
