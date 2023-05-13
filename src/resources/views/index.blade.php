@@ -56,30 +56,23 @@
 
 $(function() {
 
-    if($('#session').text()=='出勤しました'){
+    if($('#session').text()=='出勤中'){
         $('#working_start').toggleClass('button-none');
         $('#working_end').toggleClass('button-none');
         $('#break_start').toggleClass('button-none');
     };
 
-    if($('#session').text()=='退勤しました'){
+    if($('#session').text()=='お疲れさまでした！'){
         $('#working_start').removeClass('button-none');
         $('#working_end').addClass('button-none');
         $('#break_start').addClass('button-none');
     };
 
-    if($('#session').text()=='休憩開始しました'){
+    if($('#session').text()=='休憩中'){
         $('#working_start').addClass('button-none');
         $('#working_end').addClass('button-none');
         $('#break_start').addClass('button-none');
         $('#break_end').removeClass('button-none');
-    };
-
-    if($('#session').text()=='休憩終了しました'){
-        $('#working_start').addClass('button-none');
-        $('#working_end').removeClass('button-none');
-        $('#break_start').removeClass('button-none');
-        $('#break_end').addClass('button-none');
     };
 
 });
