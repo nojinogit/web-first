@@ -17,8 +17,8 @@ class BreakTimeFactory extends Factory
     {
         return [
             'working_hour_id' => WorkingHour::factory(),
-            'break_start' => $this->faker->dateTimeBetween($startDate = '-3hours', $endDate = 'now', $timezone = null),
-            'break_end' => $this->faker->dateTimeBetween($startDate = 'now', $endDate = '+2hours', $timezone = null),
+            'break_start' => $this->faker->dateTimeBetween($startDate = '-1hour', $endDate = 'now', $timezone = null),
+            'break_end' => $this->faker->dateTimeBetween($startDate = 'now', $endDate = '+1hour', $timezone = null),
         ];
     }
 }

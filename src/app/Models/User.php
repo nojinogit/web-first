@@ -42,7 +42,25 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function workinghour(){
+    public function workinghours(){
         return $this->hasMany(WorkingHour::class);
+    }
+
+    public function scopeIdSearch($query,$id){
+        if(!empty($id)){
+            $query->where('id',$id);
+        }
+    }
+
+    public function scopeNameSearch($query,$name){
+        if(!empty($name)){
+            $query->where('name','like','%'.$name.'%');
+        }
+    }
+
+    public function scopeEmailSearch($query,$email){
+        if(!empty($email)){
+            $query->where('email',$email);
+        }
     }
 }

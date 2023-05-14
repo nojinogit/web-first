@@ -18,4 +18,28 @@ class WorkingHour extends Model
     public function breaktimes(){
         return $this->hasMany(BreakTime::class);
     }
+
+    public function scopeIdSearch($query,$id){
+        if(!empty($id)){
+            $query->where('user_id',$id);
+        }
+    }
+
+    public function scopeNameSearch($query,$name){
+        if(!empty($name)){
+            $query->whereHas('user', function($q)use($name){$q->where('name', 'like','%'.$name.'%');});
+        }
+    }
+
+    public function scopeStartDateSearch($query,$startDate){
+        if(!empty($startDate)){
+            $query->whereDate('working_start', '>=', $startDate);
+        }
+    }
+
+    public function scopeEndDateSearch($query,$endDate){
+        if(!empty($endDate)){
+            $query->whereDate('working_start', '<=', $endDate);
+        }
+    }
 }

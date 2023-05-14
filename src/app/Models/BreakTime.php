@@ -14,4 +14,8 @@ class BreakTime extends Model
     public function workinghour(){
         return $this->belongsTo(WorkingHour::class);
     }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

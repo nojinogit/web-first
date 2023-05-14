@@ -29,7 +29,7 @@ class FortifyServiceProvider extends ServiceProvider
     {
         Fortify::createUsersUsing(CreateNewUser::class);
         Fortify::registerView(function () {
-        return view('register');
+        return view('auth.register');
     });
 
     Fortify::loginView(function () {
@@ -41,5 +41,20 @@ class FortifyServiceProvider extends ServiceProvider
 
         return Limit::perMinute(100)->by($email . $request->ip());
     });
+
+    Fortify::requestPasswordResetLinkView(function () {
+        return view('auth.forgot-password');
+    });
+
+    Fortify::resetPasswordView(function ($request) {
+        return view('auth.reset-password', ['request' => $request]);
+    });
+
+    Fortify::resetPasswordView(function ($request) {
+        return view('auth.reset-password', ['request' => $request]);
+    });
+
+    Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
+
     }
 }

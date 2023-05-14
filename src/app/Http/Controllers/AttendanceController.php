@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\WorkingHour;
 use App\Models\BreakTime;
+use Illuminate\Pagination\Paginator;
 
 class AttendanceController extends Controller
 {
@@ -14,7 +15,7 @@ class AttendanceController extends Controller
     }
 
     public function search(Request $request){
-        $attendances=WorkingHour::with('breaktimes','user')->whereDate('working_start',$request->date)->get();
+        $attendances=WorkingHour::with('breaktimes','user')->whereDate('working_start',$request->date)->Paginate(5);
         return view('/attendance',compact('attendances'));
     }
 }

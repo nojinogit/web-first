@@ -3,17 +3,27 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthenticatedSessionController;
 use App\Http\Controllers\RegisteredUserController;
-use App\Http\Controllers\TopController;
+use App\Http\Controllers\IndexController;
 use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\UserIndexController;
+use App\Http\Controllers\UserAttendanceController;
 
 Route::middleware('auth')->group(function(){
-    Route::get('/', [TopController::class,'index']);});
+    Route::get('/', [IndexController::class,'index']);});
 
 Route::middleware('auth')->group(function(){
     Route::get('/attendance', [AttendanceController::class,'attendance']);});
 
-Route::post('/workingStart', [TopController::class,'workingStart']);
-Route::post('/workingEnd', [TopController::class,'workingEnd']);
-Route::post('/breakStart', [TopController::class,'breakStart']);
-Route::post('/breakEnd', [TopController::class,'breakEnd']);
-Route::post('/search', [AttendanceController::class,'search']);
+Route::middleware('auth')->group(function(){
+    Route::get('/userIndex', [UserIndexController::class,'index']);});
+
+Route::middleware('auth')->group(function(){
+    Route::get('/userAttendance', [UserAttendanceController::class,'index']);});
+
+Route::post('/workingStart', [IndexController::class,'workingStart']);
+Route::post('/workingEnd', [IndexController::class,'workingEnd']);
+Route::post('/breakStart', [IndexController::class,'breakStart']);
+Route::post('/breakEnd', [IndexController::class,'breakEnd']);
+Route::get('/search', [AttendanceController::class,'search']);
+Route::get('/userSearch', [UserIndexController::class,'search']);
+Route::get('/userAttendanceSearch', [UserAttendanceController::class,'search']);

@@ -5,13 +5,12 @@
 .header__inner {
     margin: 0 auto;
     padding: 20px 15px;
-    max-width: 1230px;
+    max-width: 1200px;
 }
 
 .header-utilities {
     display: flex;
     align-items: center;
-    justify-content: space-between;
 }
 
 .header__logo {
@@ -27,8 +26,7 @@
 
 .header-nav {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    margin-left: 400px;
     list-style: none;
 }
 

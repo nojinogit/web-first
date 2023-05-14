@@ -4,12 +4,13 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/attendance.css')}}">
+
 @endsection
 
 @section('content')
 
 <h1>
-    <form action="/search" method="post">
+    <form action="/search" method="get">
         @csrf
         <input type="date" value="{{ date('Y-m-d'); }}" name="date">
         <button>表示</button>
@@ -68,5 +69,9 @@
     @endisset
     </table>
 </div>
-
+@isset($attendances)
+<div class="pagination_block">
+{{ $attendances->appends(request()->query())->links('vendor/pagination/bootstrap-4') }}
+</div>
+@endisset
 @endsection

@@ -16,8 +16,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        /*User::factory(10)->create();
-        WorkingHour::factory(10)->create();*/
-        BreakTime::factory(10)->create();
+        /*User::factory(10)->create();*/
+        /*WorkingHour::factory(10)->create();*/
+        /*BreakTime::factory(10)->create();*/
+        /*$this->call(WorkinghoursTableSeeder::class);*/
+        /*$this->call(BreakTimesTableSeeder::class);*/
     }
 }
