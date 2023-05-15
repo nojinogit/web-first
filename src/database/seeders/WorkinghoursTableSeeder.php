@@ -15,7 +15,7 @@ class WorkinghoursTableSeeder extends Seeder
      */
     public function run()
     {
-        for($i=new Carbon('2023-5-1 08:30:00'),$j=new Carbon('2023-5-1 17:30:00');$i<new Carbon('2023-5-11 08:30:00');$i->addDay(),$j->addDay()){
+        for($i=new Carbon('2023-5-1 08:30:00'),$j=new Carbon('2023-5-1 17:30:00');$i<new Carbon('2023-5-15 08:30:00');$i->addDay(),$j->addDay()){
         $param = [
         'user_id' => '1',
         'working_start' => $i,

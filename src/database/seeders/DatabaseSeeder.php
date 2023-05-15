@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
     {
         /*User::factory(10)->create();*/
         /*WorkingHour::factory(10)->create();*/
-        /*BreakTime::factory(10)->create();*/
+        BreakTime::factory(99)->create();
         /*$this->call(WorkinghoursTableSeeder::class);*/
         /*$this->call(BreakTimesTableSeeder::class);*/
     }
