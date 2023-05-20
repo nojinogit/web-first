@@ -33,7 +33,7 @@
         <th class="attendance-table__header">勤務開始</th>
         <th class="attendance-table__header">勤務終了</th>
         <th class="attendance-table__header">休憩時間</th>
-        <th class="attendance-table__header">勤務時間</th>
+        <th class="attendance-table__header" nowrap>勤務時間</th>
     </tr>
     @isset($userAttendances)
     @foreach($userAttendances as $userAttendance)
