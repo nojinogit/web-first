@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+
+  nginx:
+    image: nginx:1.21.1
+    ports:
+      - "80:80"
+    volumes:
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./src:/var/www/
+    depends_on:
+      - php
+
+  php:
+    build: ./docker/php
+    volumes:
+      - ./src:/var/www/
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=database-2.cbdgj8es6xef.ap-northeast-1.rds.amazonaws.com
+      - PMA_USER=admin
+      - PMA_PASSWORD=128database
+    ports:
+      - 8080:80
