@@ -11,9 +11,7 @@
 <h1>{{ Auth::user()->name }} さんお疲れ様です！</h1>
 
 <div>
-    <div>
-        {{ \Carbon\Carbon::now() }}
-    </div>
+    <div id="time"></div>
     @if(session('message'))
     <div class="message">
         <div class="message__success">
@@ -76,6 +74,12 @@ $(function() {
     };
 
 });
-</script>
 
+    time();
+    function time(){
+        const now = new Date();
+        document.getElementById("time").innerHTML = now.toLocaleTimeString();
+    }
+    setInterval('time()',1000);
+    </script>
 @endsection

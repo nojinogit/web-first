@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
 use App\Models\WorkingHour;
-use App\Models\BreakTime;
 use Illuminate\Pagination\Paginator;
 
 class AttendanceController extends Controller

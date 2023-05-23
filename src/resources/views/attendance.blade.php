@@ -12,8 +12,8 @@
 <h1>
     <form action="/search" method="get">
         @csrf
-        <input type="date" value="{{ date('Y-m-d'); }}" name="date">
-        <button>表示</button>
+        <input type="date" value="{{ date('Y-m-d'); }}" name="date" class="search-input">
+        <button>検索</button>
     </form>
 </h1>
 

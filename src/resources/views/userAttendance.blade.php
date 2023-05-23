@@ -3,7 +3,7 @@
 @section('title','userAttendance')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/attendance.css')}}">
+<link rel="stylesheet" href="{{ asset('css/userAttendance.css')}}">
 
 @endsection
 
@@ -25,42 +25,42 @@
     </form>
 </div>
 
-<div class="attendance-table">
-    <table class="attendance-table__inner">
-    <tr class="attendance-table__row">
-        <th class="attendance-table__header">名前</th>
-        <th class="attendance-table__header">勤務日</th>
-        <th class="attendance-table__header">勤務開始</th>
-        <th class="attendance-table__header">勤務終了</th>
-        <th class="attendance-table__header">休憩時間</th>
-        <th class="attendance-table__header" nowrap>勤務時間</th>
+<div class="userAttendance-table">
+    <table class="userAttendance-table__inner">
+    <tr class="userAttendance-table__row">
+        <th class="userAttendance-table__header">名前</th>
+        <th class="userAttendance-table__header">勤務日</th>
+        <th class="userAttendance-table__header">勤務開始</th>
+        <th class="userAttendance-table__header">勤務終了</th>
+        <th class="userAttendance-table__header">休憩時間</th>
+        <th class="userAttendance-table__header" nowrap>勤務時間</th>
     </tr>
     @isset($userAttendances)
     @foreach($userAttendances as $userAttendance)
-    <tr class="attendance-table__row">
-        <td class="attendance-table__item">{{$userAttendance->user->name}}</td>
-        <td class="attendance-table__item">
+    <tr class="userAttendance-table__row">
+        <td class="userAttendance-table__item">{{$userAttendance->user->name}}</td>
+        <td class="userAttendance-table__item">
             @php
                 $working_start=\Carbon\Carbon::parse($userAttendance->working_start);
                 $working_start_day=$working_start->format('y-m-d');
             @endphp
             {{$working_start_day}}
         </td>
-        <td class="attendance-table__item">
+        <td class="userAttendance-table__item">
             @php
                 $working_start=\Carbon\Carbon::parse($userAttendance->working_start);
                 $working_start_time=$working_start->format('H:i:s');
             @endphp
             {{$working_start_time}}
         </td>
-        <td class="attendance-table__item">
+        <td class="userAttendance-table__item">
             @php
                 $working_end=\Carbon\Carbon::parse($userAttendance->working_end);
                 $working_end_time=$working_end->format('H:i:s');
             @endphp
             {{$working_end_time}}
         </td>
-        <td class="attendance-table__item">
+        <td class="userAttendance-table__item">
             @php
                 $totalbreak=0;
                 foreach($userAttendance->breaktimes as $userAttendance->breaktime){
@@ -72,7 +72,7 @@
             @endphp
             {{$breaktime}}
         </td>
-        <td class="attendance-table__item">
+        <td class="userAttendance-table__item">
             @php
                 $totaltime=$working_start->diffInSeconds($working_end);
                 $workingtime=$totaltime-$totalbreak;
