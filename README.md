@@ -42,12 +42,13 @@ jquery:3.4.1/
 #テーブル設計
 <img width="840" alt="tables" src="https://github.com/nojinogit/web-first/assets/127584258/e9546d8a-b665-4126-8784-dcb507102fe2">
 
-#ER 図
+#ER 図  
 ![ER](https://github.com/nojinogit/web-first/assets/127584258/19085f25-a088-48cd-b9f9-3aca4f2f38d0)
 
-#環境構築
+#環境構築  
 ・.env.example をコピーし.env を作成  
-・.env の DB_HOST=mysql,DB_DATABASE=laravel_db,DB_USERNAME=laravel_user,DB_PASSWORD=laravel_pass に変更  
+・.env の DB_HOST=mysql,DB_DATABASE=laravel_db,  
+ DB_USERNAME=laravel_user,DB_PASSWORD=laravel_pass に変更  
 ・docker-compose.yml の存在するディレクトリにて「docker-compose up -d --build」  
 ・php コンテナに入る「docker-compose exec php bash」  
 ・コンポーザのアップデート「composer update」  
